@@ -1,0 +1,234 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for longer content */
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 0.5em;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 0.95em;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.file-upload-area {
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+    position: relative; /* For label positioning if needed */
+}
+
+.file-upload-area.highlight {
+    border-color: #28a745;
+    background-color: #e9f5ee;
+}
+
+#fileElem {
+    display: none; /* Hide the default file input */
+}
+
+.file-label {
+    cursor: pointer;
+    font-weight: normal;
+    color: #007bff;
+}
+
+.file-label strong {
+    font-weight: bold;
+}
+
+.file-label:hover {
+    text-decoration: underline;
+}
+
+button, .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none; /* For <a> styled as button */
+    display: inline-block; /* For <a> styled as button */
+    text-align: center;
+}
+
+button:hover, .button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#convert-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.preview-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+}
+
+.preview-container h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+#image-preview, #svg-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: block;
+    margin: 0 auto;
+    background-color: white; /* Ensure transparent SVGs have a backdrop */
+}
+
+#result-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.svg-code-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.svg-code-container h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+#svg-code {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    background-color: #f9f9f9;
+    resize: vertical;
+}
+
+#copy-svg-btn {
+    background-color: #28a745;
+    margin-top: 10px;
+}
+#copy-svg-btn:hover {
+    background-color: #1e7e34;
+}
+
+#download-svg-btn {
+    background-color: #17a2b8;
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0; /* Center download button */
+}
+#download-svg-btn:hover {
+    background-color: #117a8b;
+}
+
+.error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border: 1px solid #D8000C;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#loading-spinner {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #007bff;
+    animation: spin 1s ease infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.85em;
+    color: #7f8c8d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+}
