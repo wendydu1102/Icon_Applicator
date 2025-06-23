@@ -1,3 +1,4 @@
+// This file remains unchanged from the previous version.
 const timerDisplay = document.getElementById('timer-display');
 const minutesInput = document.getElementById('minutes');
 const startBtn = document.getElementById('start-btn');
