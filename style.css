@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f9fa;
+    /* Light gray background for a calm feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #343a40;
+    /* Dark gray for text */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    /* Darker blue-gray for heading */
+    font-size: 2em;
+    font-weight: 700;
+}
+
+#timer-display {
+    font-size: 4.5em;
+    margin-bottom: 25px;
+    color: #3498db;
+    /* A pleasant blue for the timer */
+    font-weight: 300;
+    /* Lighter weight for a modern look */
+}
+
+.input-area {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-area label {
+    margin-right: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+.input-area input[type="number"] {
+    width: 70px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ced4da;
+    /* Light gray border */
+    border-radius: 5px;
+    font-size: 1em;
+    color: #495057;
+}
+
+.input-area input[type="number"]:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+
+.controls button {
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    color: white;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.controls button:active {
+    transform: scale(0.98);
+}
+
+#start-btn {
+    background-color: #28a745;
+    /* Green */
+}
+
+#start-btn:hover {
+    background-color: #218838;
+}
+
+#pause-btn {
+    background-color: #ffc107;
+    /* Yellow */
+    color: #212529;
+    /* Dark text for better contrast on yellow */
+}
+
+#pause-btn:hover {
+    background-color: #e0a800;
+}
+
+#reset-btn {
+    background-color: #dc3545;
+    /* Red */
+}
+
+#reset-btn:hover {
+    background-color: #c82333;
+}
+
+/* Basic responsiveness */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #timer-display {
+        font-size: 3.5em;
+    }
+
+    .controls button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        min-width: 90px;
+        margin: 5px;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    .input-area label {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+}
