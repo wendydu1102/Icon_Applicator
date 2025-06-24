@@ -1,4 +1,5 @@
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -28,4 +29,115 @@
     <script src="script.js"></script>
 </body>
 
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Study Garden</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Serene Study Garden</h1>
+        <p>Cultivate focus and grow your knowledge.</p>
+    </header>
+
+    <main class="container">
+        <section id="left-panel">
+            <div id="todo-widget" class="widget">
+                <h2><i class="fas fa-list-check"></i> Daily Sprouts (To-Do)</h2>
+                <form id="todo-form">
+                    <input type="text" id="task-input" placeholder="What's your task?" required>
+                    <input type="number" id="task-time-input" placeholder="Time (min)" min="1" required>
+                    <button type="submit"><i class="fas fa-plus"></i> Add Sprout</button>
+                </form>
+                <ul id="todo-list">
+                    <!-- Tasks will be listed here -->
+                </ul>
+            </div>
+
+            <div id="pomodoro-widget" class="widget">
+                <h2><i class="fas fa-stopwatch"></i> Focus Bloom Timer</h2>
+                <div id="pomodoro-timer">
+                    <div id="pomodoro-task-name">Select a task to begin</div>
+                    <div id="pomodoro-time-display">25:00</div>
+                    <div id="pomodoro-controls">
+                        <button id="pomodoro-start"><i class="fas fa-play"></i> Start</button>
+                        <button id="pomodoro-pause" style="display:none;"><i class="fas fa-pause"></i> Pause</button>
+                        <button id="pomodoro-reset"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+                <div id="pomodoro-mode-selector" style="margin-top: 10px;">
+                    <button data-mode="pomodoro" class="active">Pomodoro</button>
+                    <button data-mode="shortBreak">Short Break</button>
+                    <button data-mode="longBreak">Long Break</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="center-panel">
+            <div id="focus-garden-widget" class="widget">
+                <h2><i class="fas fa-seedling"></i> Your Focus Garden</h2>
+                <div id="garden-area">
+                    <!-- Plants will appear here -->
+                    <p>Complete tasks and Pomodoros to grow your garden!</p>
+                </div>
+                <div id="garden-stats">
+                    <p>Water Drops: <span id="water-drops">0</span> <i class="fas fa-tint" style="color: #89CFF0;"></i></p>
+                    <p>Sunlight Points: <span id="sunlight-points">0</span> <i class="fas fa-sun" style="color: #FFB703;"></i></p>
+                </div>
+                <div id="garden-shop" style="margin-top: 15px;">
+                    <h3><i class="fas fa-store"></i> Garden Shop</h3>
+                    <button class="shop-item" data-item="sapling" data-cost="5" data-type="water">Plant Sapling (5 <i class="fas fa-tint"></i>)</button>
+                    <button class="shop-item" data-item="flower" data-cost="10" data-type="sun">Plant Flower (10 <i class="fas fa-sun"></i>)</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="right-panel">
+            <div id="calendar-widget" class="widget">
+                <h2><i class="far fa-calendar-alt"></i> Long-Term Growth Plan</h2>
+                <div id="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="month-year"></h3>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-days">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div id="calendar-dates" class="calendar-dates">
+                        <!-- Dates will be populated here -->
+                    </div>
+                </div>
+                <div id="event-modal" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close-button">&times;</span>
+                        <h4 id="modal-date"></h4>
+                        <input type="text" id="event-text" placeholder="Your long-term goal...">
+                        <button id="save-event">Save Goal</button>
+                        <ul id="event-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rewards-widget" class="widget">
+                <h2><i class="fas fa-gift"></i> Harvested Rewards</h2>
+                <p>Keep up the good work!</p>
+                <ul id="rewards-log">
+                    <!-- Reward messages -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Serene Study Garden. Cultivate your focus.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+>>>>>>> website
 </html>

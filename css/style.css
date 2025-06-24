@@ -1,0 +1,558 @@
+:root {
+    --primary-color: #A3B18A; /* Sage Green */
+    --secondary-color: #DAD7CD; /* Light Beige */
+    --accent-color: #588157; /* Darker Green */
+    --text-color: #344E41; /* Dark Slate Green */
+    --background-color: #F0EFEB; /* Very Light Grey/Off-white */
+    --highlight-color: #FFB703; /* A gentle yellow for highlights, like sunshine */
+    --font-family: 'Quicksand', sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5em 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+header p {
+    margin: 0.5em 0 0;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 20px;
+    gap: 20px;
+    flex-grow: 1;
+    max-width: 1400px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the container */
+}
+
+#left-panel, #center-panel, #right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#left-panel { flex: 1.2; min-width: 300px; } /* Slightly larger for todo/pomodoro */
+#center-panel { flex: 1.8; min-width: 350px; } /* Largest for the garden */
+#right-panel { flex: 1; min-width: 280px; }
+
+.widget {
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--secondary-color);
+}
+
+.widget h2 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+.widget h2 .fas, .widget h2 .far {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+
+/* To-Do List Styles */
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Allow wrapping for inputs */
+}
+
+#todo-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+}
+
+#todo-form input[type="number"] {
+    width: 80px; /* Fixed width for time input */
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+}
+
+#todo-form button, .shop-item {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+
+#todo-form button:hover, .shop-item:hover {
+    background-color: #4A724B; /* Darken accent */
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+#todo-list li {
+    background-color: var(--secondary-color);
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* For selecting task */
+}
+#todo-list li:hover {
+    background-color: #c9c7bd;
+}
+
+
+#todo-list li.completed {
+    text-decoration: line-through;
+    background-color: #c9c7bd;
+    color: #777;
+}
+#todo-list li.completed .task-text {
+     color: #777;
+}
+
+
+#todo-list li .task-actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+#todo-list li .task-actions button:hover {
+    color: var(--highlight-color);
+}
+#todo-list li.selected-task {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+    background-color: #dde2d1; /* Slightly different background for selected */
+}
+
+
+/* Pomodoro Timer Styles */
+#pomodoro-timer {
+    text-align: center;
+}
+#pomodoro-task-name {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    font-weight: 500;
+    min-height: 20px; /* Prevent layout shift */
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+#pomodoro-time-display {
+    font-size: 3.5em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+#pomodoro-controls button, #pomodoro-mode-selector button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pomodoro-controls button:hover, #pomodoro-mode-selector button:hover {
+    background-color: var(--accent-color);
+}
+#pomodoro-mode-selector button.active {
+    background-color: var(--accent-color);
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* Focus Garden Styles */
+#garden-area {
+    min-height: 200px;
+    background-color: #E0E7D3; /* Light, earthy green for soil/grass */
+    border: 2px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Allow plants to wrap */
+    gap: 15px; /* Space between plants */
+    align-items: flex-end; /* Plants grow from the bottom */
+    position: relative; /* For absolutely positioned elements if needed */
+}
+#garden-area p { /* Message when garden is empty */
+    width: 100%;
+    text-align: center;
+    color: var(--accent-color);
+    align-self: center; /* Center message vertically if garden is empty */
+}
+.plant {
+    width: 50px; /* Base size */
+    height: 50px; /* Base size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em; /* For emoji/icon plants */
+    transition: transform 0.5s ease-out;
+    position: relative; /* For potential tooltips or animations */
+}
+.plant:hover {
+    transform: scale(1.1);
+}
+/* Specific plant styles can be added here if using images or more complex CSS shapes */
+/* .plant.sapling { content: "🌱"; } */ /* Handled by JS textContent for now */
+/* .plant.flower { content: "🌸"; } */
+
+#garden-stats p {
+    margin: 8px 0;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+#garden-stats span {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-left: 5px;
+    margin-right: 3px;
+}
+.shop-item .fas {
+    margin-left: 5px;
+}
+.shop-item[data-type="water"] .fa-tint { color: #89CFF0; } /* Light blue for water */
+.shop-item[data-type="sun"] .fa-sun { color: var(--highlight-color); }
+
+
+/* Calendar Styles */
+#calendar-container {
+    padding: 10px;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--accent-color);
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+.calendar-header button:hover {
+    background-color: var(--secondary-color);
+}
+
+.calendar-days, .calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 5px;
+}
+.calendar-days span {
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 5px 0;
+    font-size: 0.9em;
+}
+.calendar-dates div {
+    padding: 8px 5px;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    min-height: 30px; /* Ensure clickable area */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calendar-dates div:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+.calendar-dates div.other-month {
+    color: #aaa;
+    cursor: default;
+}
+.calendar-dates div.other-month:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+.calendar-dates div.today {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+.calendar-dates div.has-event {
+    border: 2px solid var(--highlight-color); /* Highlight days with events */
+    font-weight: bold;
+    position: relative;
+}
+.calendar-dates div.has-event::after { /* Small dot indicator for events */
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+.calendar-dates div.today.has-event::after {
+    background-color: white;
+}
+
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Dim background */
+    display: flex; /* Added for centering */
+    align-items: center; /* Added for centering */
+    justify-content: center; /* Added for centering */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 25px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* For close button positioning */
+}
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute; /* Position relative to modal-content */
+    top: 10px;
+    right: 15px;
+}
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#event-modal h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    font-size: 1.3em;
+}
+#event-modal input[type="text"] {
+    width: calc(100% - 22px); /* Account for padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+}
+#event-modal button#save-event {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: var(--font-family);
+    transition: background-color 0.3s ease;
+}
+#event-modal button#save-event:hover {
+    background-color: #4A724B;
+}
+#event-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+#event-list li {
+    padding: 8px 5px;
+    border-bottom: 1px solid var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#event-list li:last-child {
+    border-bottom: none;
+}
+#event-list li button.delete-event {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 3px;
+}
+#event-list li button.delete-event:hover {
+    font-weight: bold;
+}
+
+
+/* Rewards Log Styles */
+#rewards-log {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    padding: 5px;
+}
+#rewards-log li {
+    background-color: #E9F5DB; /* Light green tint */
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+}
+#rewards-log li .fas, #rewards-log li .far { /* Icons within rewards log */
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1.5em 0;
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    margin-top: auto; /* Push footer to bottom */
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+    #left-panel, #center-panel, #right-panel {
+        flex: none; /* Reset flex basis */
+        width: 100%; /* Full width for stacked layout */
+        max-width: 700px; /* Max width for centered content on larger column view */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) { /* Small devices (landscape phones, less than 768px) */
+    header h1 {
+        font-size: 2em;
+    }
+    .widget h2 {
+        font-size: 1.3em;
+    }
+    #pomodoro-time-display {
+        font-size: 3em;
+    }
+    #todo-form {
+        flex-direction: column; /* Stack form elements */
+    }
+    #todo-form input[type="number"] {
+        width: 100%; /* Full width for time input */
+    }
+    #pomodoro-controls button, #pomodoro-mode-selector button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) { /* Extra small devices (portrait phones, less than 480px) */
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    .widget {
+        padding: 15px;
+    }
+    .widget h2 {
+        font-size: 1.2em;
+    }
+    #pomodoro-time-display {
+        font-size: 2.5em;
+    }
+    #pomodoro-controls button, #pomodoro-mode-selector button {
+        padding: 8px 10px;
+        font-size: 0.85em;
+        margin: 2px; /* Add some space if they wrap */
+    }
+    .calendar-dates div {
+        padding: 6px 3px;
+        font-size: 0.9em;
+    }
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
